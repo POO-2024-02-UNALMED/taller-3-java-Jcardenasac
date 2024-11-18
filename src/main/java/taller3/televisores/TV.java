@@ -1,7 +1,5 @@
 package taller3.televisores;
 
-
-
 public class TV {
 	private Marca marca;
 	private int canal;
@@ -29,9 +27,9 @@ public class TV {
         return this.canal;
     }
     public void setCanal(int canal){
-    	if(this.estado == true && canal>=1 && canal<=120 ) {
-             this.canal = canal;
-    	}
+        if (this.estado == true && 1 <= canal && canal <= 120){
+            this.canal = canal;
+        }
     }
     public int getPrecio(){
         return this.precio;
@@ -43,9 +41,8 @@ public class TV {
         return this.volumen;
     }
     public void setVolumen(int volumen){
-    	if(this.estado == true && volumen>=0 && volumen<=7 ) {
-    		 this.volumen = volumen;
-    	}
+    	if(this.estado == true && 0 <= volumen && volumen <= 7)
+            this.volumen = volumen;
     }
     public Control getControl(){
         return this.control;
@@ -53,8 +50,8 @@ public class TV {
     public void setControl(Control control){
         this.control = control;
     }
-    public int getNumTV () {
-    	return numTV;
+    public static int getNumTV () {
+    	return TV.numTV;
     }
     public static void setNumTV (int nuevonumTV) {
     	TV.numTV = nuevonumTV;
@@ -64,30 +61,31 @@ public class TV {
 	}
 	public void turnOff() {
 		this.estado = false;
-	}
-	public boolean getEstado() {
+    }
+    public boolean getEstado() {
 		return this.estado;
 	}
-	public void canalUp() {
-        if(this.estado == true && this.canal <= 120 && this.canal >= 1){
+    public void canalUp() {
+        if(this.estado == true && this.canal < 120){
 		this.canal++;
-		}
-    }
-    public void canalDown() {
-            if(this.estado == true && this.canal <= 120 && this.canal >= 1){
-    		this.canal--;
-            }
-    }
-    public void volumenDown() {
-        if(this.estado == true && this.volumen <= 7 && this.volumen >= 0){
-		this.volumen--;
         }
-    }
+	}
+	public void canalDown() {
+		if(this.estado == true && this.canal > 1){
+		this.canal--;
+        }
+	}
     public void volumenUp() {
-        if(this.estado == true && this.volumen <= 7 && this.volumen >= 0){
+        if(this.estado == true && this.volumen < 7){
 		this.volumen++;
         }
-    }
-}  
+	}
+	public void volumenDown() {
+		if(this.estado == true && this.volumen > 0){
+            this.volumen--;
+            }
+	}
+}
+   
 
 
